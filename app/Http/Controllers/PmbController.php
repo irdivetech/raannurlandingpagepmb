@@ -69,6 +69,7 @@ class PmbController extends Controller
                 'gender' => $request->gender,
                 'child_order' => $request->child_order,
                 'siblings_count' => $request->siblings_count,
+                'cita_cita' => $request->cita_cita,
                 'birth_place' => $request->birth_place,
                 'birth_date' => $request->birth_date,
             ]);
@@ -77,11 +78,18 @@ class PmbController extends Controller
             StudentParent::create([
                 'registration_id' => $registration->id,
                 'father_name' => $request->father_name,
+                'father_nik' => $request->father_nik,
+                'father_birth_place' => $request->father_birth_place,
+                'father_birth_date' => $request->father_birth_date,
                 'father_job' => $request->father_job,
                 'father_phone' => $request->father_phone,
                 'mother_name' => $request->mother_name,
+                'mother_nik' => $request->mother_nik,
+                'mother_birth_place' => $request->mother_birth_place,
+                'mother_birth_date' => $request->mother_birth_date,
                 'mother_job' => $request->mother_job,
                 'mother_phone' => $request->mother_phone,
+                'no_pkh_kks' => $request->no_pkh_kks,
             ]);
 
             // 4. Create Address
@@ -95,7 +103,7 @@ class PmbController extends Controller
             ]);
 
             // 5. Handle File Uploads (Optional)
-            $documentTypes = ['akta', 'kk', 'ktp_ortu', 'foto'];
+            $documentTypes = ['akta', 'kk', 'ktp_ortu', 'foto', 'pkh_kks'];
             foreach ($documentTypes as $type) {
                 if ($request->hasFile($type)) {
                     $path = $request->file($type)->store('documents', 'public');
@@ -172,5 +180,14 @@ class PmbController extends Controller
         }
 
         return view('pmb.tracking', compact('result'));
+    }
+
+    public function downloadBlankFormulir()
+    {
+        $setting = \App\Models\Setting::where('key', 'formulir_pdf_path')->first();
+        if ($setting && $setting->value && \Illuminate\Support\Facades\Storage::disk('public')->exists($setting->value)) {
+            return \Illuminate\Support\Facades\Storage::disk('public')->download($setting->value, 'Formulir_Pendaftaran_RA_AN_NUUR.pdf');
+        }
+        return back()->with('error', 'File formulir pendaftaran belum tersedia untuk diunduh.');
     }
 }

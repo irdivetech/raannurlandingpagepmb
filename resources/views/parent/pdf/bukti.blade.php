@@ -122,9 +122,10 @@
 <body>
 
     <div class="kop-surat">
-        <h1>RA AN-NUUR</h1>
-        <h2>Lembaga Pendidikan Anak Usia Dini</h2>
-        <p>Alamat: Jl. Pendidikan No. 1, Kota Pendidikan, Kode Pos 12345 | Telp: (021) 12345678</p>
+        <h1>RAUDHATUL ATHFAL (RA) AN-NUUR</h1>
+        <h2>YAYASAN AN-NUUR NURUL IMAN</h2>
+        <p>NSPAUD: 101232030134</p>
+        <p>Alamat: Kp. Cijeruk RT.04/RW.02, Desa Waringinsari, Kec. Takokak, Kab. Cianjur</p>
     </div>
 
     <div class="title">
@@ -145,6 +146,11 @@
         </tr>
         <tr>
             <td colspan="3"><br><strong>A. DATA CALON SISWA</strong></td>
+        </tr>
+        <tr>
+            <th>NIK Siswa</th>
+            <td class="colon">:</td>
+            <td>{{ $registration->student->nik ?? '-' }}</td>
         </tr>
         <tr>
             <th>Nama Lengkap</th>
@@ -170,9 +176,34 @@
             <td>{{ $registration->parent->father_name ?? '-' }}</td>
         </tr>
         <tr>
+            <th>NIK Ayah</th>
+            <td class="colon">:</td>
+            <td>{{ $registration->parent->father_nik ?? '-' }}</td>
+        </tr>
+        <tr>
+            <th>Pekerjaan Ayah</th>
+            <td class="colon">:</td>
+            <td>{{ $registration->parent->father_job ?? '-' }}</td>
+        </tr>
+        <tr>
             <th>Nomor Telepon / WA</th>
             <td class="colon">:</td>
             <td>{{ $registration->parent->father_phone ?? '-' }}</td>
+        </tr>
+        <tr>
+            <th>Nama Ibu</th>
+            <td class="colon">:</td>
+            <td>{{ $registration->parent->mother_name ?? '-' }}</td>
+        </tr>
+        <tr>
+            <th>NIK Ibu</th>
+            <td class="colon">:</td>
+            <td>{{ $registration->parent->mother_nik ?? '-' }}</td>
+        </tr>
+        <tr>
+            <th>Pekerjaan Ibu</th>
+            <td class="colon">:</td>
+            <td>{{ $registration->parent->mother_job ?? '-' }}</td>
         </tr>
     </table>
 

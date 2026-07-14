@@ -188,6 +188,10 @@
                             <label class="font-bold text-sm text-gray-500">Tanggal Lahir *</label>
                             <input type="date" name="birth_date" value="{{ old('birth_date') }}" required class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-gray-800">
                         </div>
+                        <div class="space-y-1">
+                            <label class="font-bold text-sm text-gray-500">Cita-cita</label>
+                            <input type="text" name="cita_cita" value="{{ old('cita_cita') }}" placeholder="Contoh: Dokter" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-gray-800">
+                        </div>
                     </div>
                 </div>
 
@@ -206,6 +210,20 @@
                             <input type="text" name="father_name" value="{{ old('father_name') }}" required class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-gray-800">
                         </div>
                         <div class="space-y-1">
+                            <label class="font-bold text-sm text-gray-500">NIK Ayah</label>
+                            <input type="text" name="father_nik" value="{{ old('father_nik') }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-gray-800">
+                        </div>
+                        <div class="space-y-1 flex gap-2">
+                            <div class="w-1/2">
+                                <label class="font-bold text-sm text-gray-500">Tempat Lahir</label>
+                                <input type="text" name="father_birth_place" value="{{ old('father_birth_place') }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-gray-800">
+                            </div>
+                            <div class="w-1/2">
+                                <label class="font-bold text-sm text-gray-500">Tgl Lahir</label>
+                                <input type="date" name="father_birth_date" value="{{ old('father_birth_date') }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-gray-800">
+                            </div>
+                        </div>
+                        <div class="space-y-1">
                             <label class="font-bold text-sm text-gray-500">Pekerjaan Ayah *</label>
                             <input type="text" name="father_job" value="{{ old('father_job') }}" required class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-gray-800">
                         </div>
@@ -222,12 +240,30 @@
                             <input type="text" name="mother_name" value="{{ old('mother_name') }}" required class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-gray-800">
                         </div>
                         <div class="space-y-1">
+                            <label class="font-bold text-sm text-gray-500">NIK Ibu</label>
+                            <input type="text" name="mother_nik" value="{{ old('mother_nik') }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-gray-800">
+                        </div>
+                        <div class="space-y-1 flex gap-2">
+                            <div class="w-1/2">
+                                <label class="font-bold text-sm text-gray-500">Tempat Lahir</label>
+                                <input type="text" name="mother_birth_place" value="{{ old('mother_birth_place') }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-gray-800">
+                            </div>
+                            <div class="w-1/2">
+                                <label class="font-bold text-sm text-gray-500">Tgl Lahir</label>
+                                <input type="date" name="mother_birth_date" value="{{ old('mother_birth_date') }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-gray-800">
+                            </div>
+                        </div>
+                        <div class="space-y-1">
                             <label class="font-bold text-sm text-gray-500">Pekerjaan Ibu *</label>
                             <input type="text" name="mother_job" value="{{ old('mother_job') }}" required class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-gray-800">
                         </div>
                         <div class="space-y-1">
                             <label class="font-bold text-sm text-gray-500">No. WhatsApp Ibu *</label>
                             <input type="tel" name="mother_phone" value="{{ old('mother_phone') }}" required class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-gray-800">
+                        </div>
+                        <div class="space-y-1 md:col-span-2">
+                            <label class="font-bold text-sm text-gray-500">No. Kartu PKH/KKS (Jika Punya)</label>
+                            <input type="text" name="no_pkh_kks" value="{{ old('no_pkh_kks') }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-gray-800">
                         </div>
                     </div>
                 </div>
@@ -332,6 +368,12 @@
                             <h4 class="font-bold text-gray-900">Pas Foto Siswa (3x4)</h4>
                             <input type="file" name="foto" accept=".jpg,.jpeg,.png" class="w-full text-[12px] mt-2 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 cursor-pointer">
                         </div>
+
+                        <div class="border-2 border-dashed border-gray-200 rounded-xl p-4 text-center hover:border-primary hover:bg-primaryDark/5 transition-colors">
+                            <span class="material-symbols-outlined text-3xl text-gray-500 mb-2">credit_card</span>
+                            <h4 class="font-bold text-gray-900">Kartu PKH/KKS</h4>
+                            <input type="file" name="pkh_kks" accept=".jpg,.jpeg,.png,.pdf" class="w-full text-[12px] mt-2 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 cursor-pointer">
+                        </div>
                     </div>
                 </div>
 
@@ -358,6 +400,9 @@
                                 <span class="text-gray-500">NIK / No. KK:</span><span class="font-bold text-right" id="review_nik_kk">-</span>
                             </li>
                             <li class="flex justify-between border-b border-gray-200 pb-1">
+                                <span class="text-gray-500">Cita-cita:</span><span class="font-bold text-right" id="review_cita_cita">-</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-200 pb-1">
                                 <span class="text-gray-500">Jenis Kelamin:</span><span class="font-bold text-right" id="review_gender">-</span>
                             </li>
                             <li class="flex justify-between border-b border-gray-200 pb-1">
@@ -368,10 +413,13 @@
                         <h3 class="font-bold text-primary mb-3">Data Orang Tua:</h3>
                         <ul class="space-y-1 text-gray-900 mb-4">
                             <li class="flex justify-between border-b border-gray-200 pb-1">
-                                <span class="text-gray-500">Nama Ayah:</span><span class="font-bold text-right" id="review_father_name">-</span>
+                                <span class="text-gray-500">Ayah / NIK:</span><span class="font-bold text-right" id="review_father_name">-</span>
                             </li>
                             <li class="flex justify-between border-b border-gray-200 pb-1">
-                                <span class="text-gray-500">Nama Ibu:</span><span class="font-bold text-right" id="review_mother_name">-</span>
+                                <span class="text-gray-500">Ibu / NIK:</span><span class="font-bold text-right" id="review_mother_name">-</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-200 pb-1">
+                                <span class="text-gray-500">PKH / KKS:</span><span class="font-bold text-right" id="review_pkh_kks">-</span>
                             </li>
                             <li class="flex justify-between border-b border-gray-200 pb-1">
                                 <span class="text-gray-500">Email Terdaftar:</span><span class="font-bold text-right" id="review_email">{{ $email ?? '-' }}</span>
@@ -395,8 +443,11 @@
                             <li class="flex justify-between border-b border-gray-200 pb-1">
                                 <span class="text-gray-500">KTP Orang Tua:</span><span class="font-bold text-right" id="review_doc_ktp">-</span>
                             </li>
-                            <li class="flex justify-between pb-1">
+                            <li class="flex justify-between border-b border-gray-200 pb-1">
                                 <span class="text-gray-500">Pas Foto:</span><span class="font-bold text-right" id="review_doc_foto">-</span>
+                            </li>
+                            <li class="flex justify-between pb-1">
+                                <span class="text-gray-500">PKH/KKS:</span><span class="font-bold text-right" id="review_doc_pkh_kks">-</span>
                             </li>
                         </ul>
                     </div>
@@ -498,20 +549,31 @@
         if (currentStep === 5) {
             document.getElementById('review_child_name').innerText = document.getElementById('child_name').value || '-';
             document.getElementById('review_nickname').innerText = document.querySelector('input[name="nickname"]').value || '-';
-            let nik = document.querySelector('input[name="nik"]').value || '-';
-            let kk = document.querySelector('input[name="no_kk"]').value || '-';
-            document.getElementById('review_nik_kk').innerText = nik + ' / ' + kk;
             
-            let gender = document.querySelector('select[name="gender"]').value;
+            const nik = document.querySelector('input[name="nik"]').value;
+            const kk = document.querySelector('input[name="no_kk"]').value;
+            document.getElementById('review_nik_kk').innerText = `${nik || '-'} / ${kk || '-'}`;
+            
+            document.getElementById('review_cita_cita').innerText = document.querySelector('input[name="cita_cita"]').value || '-';
+
+            const gender = document.querySelector('select[name="gender"]').value;
             document.getElementById('review_gender').innerText = gender === 'L' ? 'Laki-laki' : (gender === 'P' ? 'Perempuan' : '-');
             
-            let childOrder = document.querySelector('input[name="child_order"]').value || '-';
-            let siblingsCount = document.querySelector('input[name="siblings_count"]').value || '-';
-            document.getElementById('review_child_order').innerText = childOrder + ' dari ' + siblingsCount;
+            const childOrder = document.querySelector('input[name="child_order"]').value;
+            const siblings = document.querySelector('input[name="siblings_count"]').value;
+            document.getElementById('review_child_order').innerText = `${childOrder || '-'} / ${siblings || '-'}`;
+
+            const fatherName = document.querySelector('input[name="father_name"]').value;
+            const fatherNik = document.querySelector('input[name="father_nik"]').value;
+            document.getElementById('review_father_name').innerText = `${fatherName || '-'} / ${fatherNik || '-'}`;
             
-            document.getElementById('review_father_name').innerText = document.querySelector('input[name="father_name"]').value || '-';
-            document.getElementById('review_mother_name').innerText = document.querySelector('input[name="mother_name"]').value || '-';
+            const motherName = document.querySelector('input[name="mother_name"]').value;
+            const motherNik = document.querySelector('input[name="mother_nik"]').value;
+            document.getElementById('review_mother_name').innerText = `${motherName || '-'} / ${motherNik || '-'}`;
+            
             document.getElementById('review_phone').innerText = document.getElementById('parent_phone').value || '-';
+            
+            document.getElementById('review_pkh_kks').innerText = document.querySelector('input[name="no_pkh_kks"]').value || '-';
             
             let address = document.querySelector('textarea[name="address_line"]').value;
             let province = document.getElementById('provinsi').options[document.getElementById('provinsi').selectedIndex]?.text || '';
@@ -523,16 +585,22 @@
 
             // Documents
             let docMethod = document.querySelector('input[name="doc_method"]:checked').value;
+            function getDocStatus(input) {
+                return input && input.files.length ? 'Ada File' : 'Belum diunggah';
+            }
+
             if (docMethod === 'manual') {
                 document.getElementById('review_doc_akta').innerText = 'Diserahkan Langsung';
                 document.getElementById('review_doc_kk').innerText = 'Diserahkan Langsung';
                 document.getElementById('review_doc_ktp').innerText = 'Diserahkan Langsung';
                 document.getElementById('review_doc_foto').innerText = 'Diserahkan Langsung';
+                document.getElementById('review_doc_pkh_kks').innerText = 'Diserahkan Langsung';
             } else {
-                document.getElementById('review_doc_akta').innerText = document.querySelector('input[name="akta"]').files.length ? 'Ada File' : 'Belum diunggah';
-                document.getElementById('review_doc_kk').innerText = document.querySelector('input[name="kk"]').files.length ? 'Ada File' : 'Belum diunggah';
-                document.getElementById('review_doc_ktp').innerText = document.querySelector('input[name="ktp_ortu"]').files.length ? 'Ada File' : 'Belum diunggah';
-                document.getElementById('review_doc_foto').innerText = document.querySelector('input[name="foto"]').files.length ? 'Ada File' : 'Belum diunggah';
+                document.getElementById('review_doc_akta').innerText = docMethod === 'digital' ? getDocStatus(document.querySelector('input[name="akta"]')) : 'Diserahkan Fisik';
+                document.getElementById('review_doc_kk').innerText = docMethod === 'digital' ? getDocStatus(document.querySelector('input[name="kk"]')) : 'Diserahkan Fisik';
+                document.getElementById('review_doc_ktp').innerText = docMethod === 'digital' ? getDocStatus(document.querySelector('input[name="ktp_ortu"]')) : 'Diserahkan Fisik';
+                document.getElementById('review_doc_foto').innerText = docMethod === 'digital' ? getDocStatus(document.querySelector('input[name="foto"]')) : 'Diserahkan Fisik';
+                document.getElementById('review_doc_pkh_kks').innerText = docMethod === 'digital' ? getDocStatus(document.querySelector('input[name="pkh_kks"]')) : 'Diserahkan Fisik';
             }
         }
     }

@@ -41,4 +41,15 @@ class PublicController extends Controller
 
         return view('public.check-status', compact('registration', 'error'));
     }
+
+    public function downloadFormulir()
+    {
+        $path = \App\Models\Setting::get('formulir_pdf_path');
+        
+        if ($path && \Illuminate\Support\Facades\Storage::disk('public')->exists($path)) {
+            return \Illuminate\Support\Facades\Storage::disk('public')->download($path, 'formulir_pendaftaran_ra_annuur.pdf');
+        }
+        
+        return back()->with('error', 'File formulir belum tersedia.');
+    }
 }

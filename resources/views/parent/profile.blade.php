@@ -71,24 +71,87 @@
                     <form action="{{ route('parent.profile.update') }}" method="POST" class="p-6 space-y-6">
                         @csrf
                         @method('PUT')
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Data Ayah -->
+                            <div class="col-span-1 md:col-span-2 mt-2">
+                                <h4 class="font-bold text-gray-800 border-b border-gray-100 pb-2">Data Ayah</h4>
+                            </div>
                             <div class="space-y-2">
-                                <label class="font-medium text-sm text-gray-700">Nama Ayah / Wali</label>
+                                <label class="font-medium text-sm text-gray-700">Nama Ayah</label>
                                 <input name="father_name" class="w-full p-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all text-gray-800" type="text" value="{{ old('father_name', $parentData->father_name ?? '') }}"/>
                                 @error('father_name') <span class="text-rose-500 text-xs">{{ $message }}</span> @enderror
                             </div>
                             <div class="space-y-2">
-                                <label class="font-medium text-sm text-gray-700">Pekerjaan</label>
+                                <label class="font-medium text-sm text-gray-700">NIK Ayah</label>
+                                <input name="father_nik" class="w-full p-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all text-gray-800" type="text" value="{{ old('father_nik', $parentData->father_nik ?? '') }}"/>
+                                @error('father_nik') <span class="text-rose-500 text-xs">{{ $message }}</span> @enderror
+                            </div>
+                            <div class="space-y-2">
+                                <label class="font-medium text-sm text-gray-700">Tempat Lahir Ayah</label>
+                                <input name="father_birth_place" class="w-full p-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all text-gray-800" type="text" value="{{ old('father_birth_place', $parentData->father_birth_place ?? '') }}"/>
+                                @error('father_birth_place') <span class="text-rose-500 text-xs">{{ $message }}</span> @enderror
+                            </div>
+                            <div class="space-y-2">
+                                <label class="font-medium text-sm text-gray-700">Tanggal Lahir Ayah</label>
+                                <input name="father_birth_date" class="w-full p-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all text-gray-800" type="date" value="{{ old('father_birth_date', $parentData->father_birth_date ?? '') }}"/>
+                                @error('father_birth_date') <span class="text-rose-500 text-xs">{{ $message }}</span> @enderror
+                            </div>
+                            <div class="space-y-2">
+                                <label class="font-medium text-sm text-gray-700">Pekerjaan Ayah</label>
                                 <input name="father_job" class="w-full p-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all text-gray-800" type="text" value="{{ old('father_job', $parentData->father_job ?? '') }}"/>
                                 @error('father_job') <span class="text-rose-500 text-xs">{{ $message }}</span> @enderror
                             </div>
                             <div class="space-y-2">
-                                <label class="font-medium text-sm text-gray-700">Nomor Telepon (WA)</label>
+                                <label class="font-medium text-sm text-gray-700">No. Telepon / WA Ayah</label>
                                 <input name="father_phone" class="w-full p-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all text-gray-800" type="text" value="{{ old('father_phone', $parentData->father_phone ?? '') }}"/>
                                 @error('father_phone') <span class="text-rose-500 text-xs">{{ $message }}</span> @enderror
                             </div>
+                            
+                            <!-- Data Ibu -->
+                            <div class="col-span-1 md:col-span-2 mt-4">
+                                <h4 class="font-bold text-gray-800 border-b border-gray-100 pb-2">Data Ibu</h4>
+                            </div>
                             <div class="space-y-2">
-                                <label class="font-medium text-sm text-gray-700">Email</label>
+                                <label class="font-medium text-sm text-gray-700">Nama Ibu</label>
+                                <input name="mother_name" class="w-full p-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all text-gray-800" type="text" value="{{ old('mother_name', $parentData->mother_name ?? '') }}"/>
+                                @error('mother_name') <span class="text-rose-500 text-xs">{{ $message }}</span> @enderror
+                            </div>
+                            <div class="space-y-2">
+                                <label class="font-medium text-sm text-gray-700">NIK Ibu</label>
+                                <input name="mother_nik" class="w-full p-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all text-gray-800" type="text" value="{{ old('mother_nik', $parentData->mother_nik ?? '') }}"/>
+                                @error('mother_nik') <span class="text-rose-500 text-xs">{{ $message }}</span> @enderror
+                            </div>
+                            <div class="space-y-2">
+                                <label class="font-medium text-sm text-gray-700">Tempat Lahir Ibu</label>
+                                <input name="mother_birth_place" class="w-full p-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all text-gray-800" type="text" value="{{ old('mother_birth_place', $parentData->mother_birth_place ?? '') }}"/>
+                                @error('mother_birth_place') <span class="text-rose-500 text-xs">{{ $message }}</span> @enderror
+                            </div>
+                            <div class="space-y-2">
+                                <label class="font-medium text-sm text-gray-700">Tanggal Lahir Ibu</label>
+                                <input name="mother_birth_date" class="w-full p-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all text-gray-800" type="date" value="{{ old('mother_birth_date', $parentData->mother_birth_date ?? '') }}"/>
+                                @error('mother_birth_date') <span class="text-rose-500 text-xs">{{ $message }}</span> @enderror
+                            </div>
+                            <div class="space-y-2">
+                                <label class="font-medium text-sm text-gray-700">Pekerjaan Ibu</label>
+                                <input name="mother_job" class="w-full p-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all text-gray-800" type="text" value="{{ old('mother_job', $parentData->mother_job ?? '') }}"/>
+                                @error('mother_job') <span class="text-rose-500 text-xs">{{ $message }}</span> @enderror
+                            </div>
+                            <div class="space-y-2">
+                                <label class="font-medium text-sm text-gray-700">No. Telepon / WA Ibu</label>
+                                <input name="mother_phone" class="w-full p-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all text-gray-800" type="text" value="{{ old('mother_phone', $parentData->mother_phone ?? '') }}"/>
+                                @error('mother_phone') <span class="text-rose-500 text-xs">{{ $message }}</span> @enderror
+                            </div>
+                            
+                            <!-- Email dan PKH -->
+                            <div class="col-span-1 md:col-span-2 mt-4">
+                                <h4 class="font-bold text-gray-800 border-b border-gray-100 pb-2">Informasi Lainnya</h4>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="font-medium text-sm text-gray-700">No. Kartu PKH/KKS (Opsional)</label>
+                                <input name="no_pkh_kks" class="w-full p-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all text-gray-800" type="text" value="{{ old('no_pkh_kks', $parentData->no_pkh_kks ?? '') }}"/>
+                                @error('no_pkh_kks') <span class="text-rose-500 text-xs">{{ $message }}</span> @enderror
+                            </div>
+                            <div class="space-y-2">
+                                <label class="font-medium text-sm text-gray-700">Email Login</label>
                                 <input class="w-full p-3 rounded-xl border border-gray-200 bg-gray-100 outline-none transition-all text-gray-500 cursor-not-allowed" type="email" value="{{ $user->email }}" readonly/>
                             </div>
                         </div>

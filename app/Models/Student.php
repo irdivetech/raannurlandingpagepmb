@@ -18,6 +18,7 @@ class Student extends Model
         'gender',
         'child_order',
         'siblings_count',
+        'cita_cita',
         'birth_place',
         'birth_date',
     ];

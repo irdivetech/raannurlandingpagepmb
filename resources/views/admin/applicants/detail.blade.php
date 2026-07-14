@@ -83,6 +83,10 @@
                             <p class="text-sm font-medium text-gray-800 font-mono">{{ $registration->student->nik }}</p>
                         </div>
                         <div>
+                            <p class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Cita-cita</p>
+                            <p class="text-sm font-medium text-gray-800">{{ $registration->student->cita_cita ?? '-' }}</p>
+                        </div>
+                        <div>
                             <p class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">No KK</p>
                             <p class="text-sm font-medium text-gray-800 font-mono">{{ $registration->student->no_kk ?? '-' }}</p>
                         </div>
@@ -129,6 +133,16 @@
                         </div>
                         <div class="grid grid-cols-2 gap-4">
                             <div>
+                                <p class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">NIK Ayah</p>
+                                <p class="text-sm font-medium text-gray-800">{{ $registration->parent->father_nik ?? '-' }}</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Tempat, Tanggal Lahir</p>
+                                <p class="text-sm font-medium text-gray-800">{{ $registration->parent->father_birth_place ?? '-' }}, {{ $registration->parent->father_birth_date ? \Carbon\Carbon::parse($registration->parent->father_birth_date)->format('d F Y') : '-' }}</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
                                 <p class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Pekerjaan Ayah</p>
                                 <p class="text-sm font-medium text-gray-800">{{ $registration->parent->father_job }}</p>
                             </div>
@@ -144,6 +158,16 @@
                         </div>
                         <div class="grid grid-cols-2 gap-4">
                             <div>
+                                <p class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">NIK Ibu</p>
+                                <p class="text-sm font-medium text-gray-800">{{ $registration->parent->mother_nik ?? '-' }}</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Tempat, Tanggal Lahir</p>
+                                <p class="text-sm font-medium text-gray-800">{{ $registration->parent->mother_birth_place ?? '-' }}, {{ $registration->parent->mother_birth_date ? \Carbon\Carbon::parse($registration->parent->mother_birth_date)->format('d F Y') : '-' }}</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
                                 <p class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Pekerjaan Ibu</p>
                                 <p class="text-sm font-medium text-gray-800">{{ $registration->parent->mother_job }}</p>
                             </div>
@@ -151,6 +175,10 @@
                                 <p class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">No. WA Ibu</p>
                                 <p class="text-sm font-medium text-emerald-600 hover:underline cursor-pointer">{{ $registration->parent->mother_phone }}</p>
                             </div>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">No. Kartu PKH / KKS</p>
+                            <p class="text-sm font-medium text-gray-800">{{ $registration->parent->no_pkh_kks ?? '-' }}</p>
                         </div>
                     </div>
                 </section>

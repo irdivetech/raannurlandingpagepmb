@@ -86,7 +86,7 @@
 <body>
 
     <div class="header">
-        <h1>RA AN-NUUR</h1>
+        <h1>RAUDHATUL ATHFAL (RA) AN-NUUR</h1>
         <p>Ringkasan Informasi Pendaftaran Calon Siswa</p>
     </div>
 
@@ -143,6 +143,10 @@
                 <th>NIK</th>
                 <td>{{ $registration->student->nik ?? '-' }}</td>
             </tr>
+            <tr>
+                <th>Cita-cita</th>
+                <td>{{ $registration->student->cita_cita ?? '-' }}</td>
+            </tr>
         </table>
     </div>
 
@@ -154,12 +158,36 @@
                 <td>{{ $registration->parent->father_name ?? '-' }}</td>
             </tr>
             <tr>
+                <th>NIK Ayah</th>
+                <td>{{ $registration->parent->father_nik ?? '-' }}</td>
+            </tr>
+            <tr>
                 <th>Pekerjaan Ayah</th>
                 <td>{{ $registration->parent->father_job ?? '-' }}</td>
             </tr>
             <tr>
-                <th>Nomor WhatsApp</th>
+                <th>Nomor WhatsApp Ayah</th>
                 <td>{{ $registration->parent->father_phone ?? '-' }}</td>
+            </tr>
+            <tr>
+                <th>Nama Ibu</th>
+                <td>{{ $registration->parent->mother_name ?? '-' }}</td>
+            </tr>
+            <tr>
+                <th>NIK Ibu</th>
+                <td>{{ $registration->parent->mother_nik ?? '-' }}</td>
+            </tr>
+            <tr>
+                <th>Pekerjaan Ibu</th>
+                <td>{{ $registration->parent->mother_job ?? '-' }}</td>
+            </tr>
+            <tr>
+                <th>Nomor WhatsApp Ibu</th>
+                <td>{{ $registration->parent->mother_phone ?? '-' }}</td>
+            </tr>
+            <tr>
+                <th>No. Kartu PKH/KKS</th>
+                <td>{{ $registration->parent->no_pkh_kks ?? '-' }}</td>
             </tr>
             <tr>
                 <th>Alamat Lengkap</th>

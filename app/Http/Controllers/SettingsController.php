@@ -23,9 +23,10 @@ class SettingsController extends Controller
         $kontak_wa = $settings->has('kontak_wa') ? $settings['kontak_wa']->value : '628174935445';
         $kontak_alamat = $settings->has('kontak_alamat') ? $settings['kontak_alamat']->value : 'Kp. Pasir Nangka RT.003/RW.001, Ds. Sukasirna, Kec. Campakamulya, Kab. Cianjur, Jawa Barat 43269';
         $kontak_email = $settings->has('kontak_email') ? $settings['kontak_email']->value : 'info@raannuur.sch.id';
+        $formulir_pdf_path = $settings->has('formulir_pdf_path') ? $settings['formulir_pdf_path']->value : null;
         
         return view('admin.settings.index', compact(
-            'target_kuota', 'biaya_batik', 'biaya_olahraga', 'biaya_lka', 'biaya_buku', 'biaya_sampul', 'spp_bulanan', 'biaya_akhir_tahun', 'kontak_wa', 'kontak_alamat', 'kontak_email'
+            'target_kuota', 'biaya_batik', 'biaya_olahraga', 'biaya_lka', 'biaya_buku', 'biaya_sampul', 'spp_bulanan', 'biaya_akhir_tahun', 'kontak_wa', 'kontak_alamat', 'kontak_email', 'formulir_pdf_path'
         ));
     }
 
@@ -42,7 +43,8 @@ class SettingsController extends Controller
             'biaya_akhir_tahun' => 'required|string',
             'kontak_wa' => 'required|string',
             'kontak_alamat' => 'required|string',
-            'kontak_email' => 'required|email'
+            'kontak_email' => 'required|email',
+            'formulir_pdf' => 'nullable|file|mimes:pdf|max:5120'
         ]);
 
         Setting::set('target_kuota', $request->target_kuota, 'integer', 'Total kuota siswa baru yang diterima');
@@ -56,6 +58,11 @@ class SettingsController extends Controller
         Setting::set('kontak_wa', $request->kontak_wa, 'string', 'Nomor WA kontak resmi (gunakan kode negara 62)');
         Setting::set('kontak_alamat', $request->kontak_alamat, 'string', 'Alamat resmi yayasan');
         Setting::set('kontak_email', $request->kontak_email, 'string', 'Email resmi lembaga');
+
+        if ($request->hasFile('formulir_pdf')) {
+            $path = $request->file('formulir_pdf')->storeAs('downloads', 'formulir_pendaftaran_ra_annuur.pdf', 'public');
+            Setting::set('formulir_pdf_path', $path, 'string', 'Path to formulir PDF');
+        }
 
         return redirect()->route('admin.settings.index')->with('success', 'Pengaturan berhasil disimpan.');
     }

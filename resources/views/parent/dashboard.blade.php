@@ -174,7 +174,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                     @php
                         $docs = $registration->documents->keyBy('type');
-                        $docTypes = ['akta' => 'Akte Kelahiran', 'kk' => 'Kartu Keluarga (KK)', 'ktp_ortu' => 'KTP Orang Tua', 'foto' => 'Pas Foto (3x4)'];
+                        $docTypes = ['akta' => 'Akte Kelahiran', 'kk' => 'Kartu Keluarga (KK)', 'ktp_ortu' => 'KTP Orang Tua', 'foto' => 'Pas Foto (3x4)', 'pkh_kks' => 'Kartu PKH/KKS'];
                     @endphp
                     @foreach($docTypes as $type => $label)
                         @if(isset($docs[$type]))

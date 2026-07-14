@@ -47,13 +47,19 @@
                 <span class="material-symbols-outlined text-[18px]" :class="tab === 'kontak' ? 'text-white' : 'text-gray-400'">contact_support</span>
                 Informasi Kontak
             </button>
+            <button @click="tab = 'formulir'" type="button"
+                class="w-full text-left flex items-center gap-3 px-4 py-3 rounded-xl font-bold text-sm transition-all"
+                :class="tab === 'formulir' ? 'bg-emerald-500 text-white shadow-sm' : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-100'">
+                <span class="material-symbols-outlined text-[18px]" :class="tab === 'formulir' ? 'text-white' : 'text-gray-400'">picture_as_pdf</span>
+                Formulir Pendaftaran
+            </button>
         </div>
 
         <!-- Form Area -->
         <div class="md:col-span-3">
             <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
 
-                <form action="{{ route('admin.settings.update') }}" method="POST">
+                <form action="{{ route('admin.settings.update') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <!-- Tab: Kuota -->
@@ -189,6 +195,37 @@
                                 <textarea id="kontak_alamat" name="kontak_alamat" rows="4" required
                                     class="w-full max-w-2xl px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 text-sm focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20 focus:bg-white transition-all resize-y">{{ old('kontak_alamat', $kontak_alamat) }}</textarea>
                                 @error('kontak_alamat')<p class="text-red-500 text-xs mt-1.5">{{ $message }}</p>@enderror
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Formulir -->
+                    <div x-show="tab === 'formulir'" x-transition style="display: none;">
+                        <div class="px-6 py-5 border-b border-gray-100 flex items-center gap-3 bg-gray-50/50">
+                            <div class="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-purple-500 text-[20px]">picture_as_pdf</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 text-lg">Formulir Pendaftaran Kosong</h3>
+                                <p class="text-xs text-gray-500 mt-0.5">Upload file PDF yang bisa di-download pengunjung di halaman pendaftaran</p>
+                            </div>
+                        </div>
+                        <div class="p-6 space-y-6">
+                            <div>
+                                <label for="formulir_pdf" class="block text-sm font-bold text-gray-700 mb-1.5">File Formulir (PDF, Max 5MB)</label>
+                                @if($formulir_pdf_path)
+                                    <div class="mb-3 p-3 bg-emerald-50 border border-emerald-200 rounded-xl flex items-center justify-between max-w-md">
+                                        <div class="flex items-center gap-2 text-emerald-700 text-sm">
+                                            <span class="material-symbols-outlined text-[18px]">check_circle</span>
+                                            <span class="font-bold">File sudah tersedia</span>
+                                        </div>
+                                        <a href="{{ Storage::url($formulir_pdf_path) }}" target="_blank" class="text-xs font-bold text-emerald-600 hover:underline">Lihat File</a>
+                                    </div>
+                                @endif
+                                <input type="file" id="formulir_pdf" name="formulir_pdf" accept="application/pdf"
+                                    class="w-full max-w-md px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 text-sm focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20 focus:bg-white transition-all">
+                                <p class="text-xs text-gray-500 mt-1.5">Kosongkan jika tidak ingin mengubah file yang sudah ada.</p>
+                                @error('formulir_pdf')<p class="text-red-500 text-xs mt-1.5">{{ $message }}</p>@enderror
                             </div>
                         </div>
                     </div>

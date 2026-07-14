@@ -22,6 +22,7 @@ Route::post('/pmb/register/submit', [PmbController::class, 'submit'])->name('pmb
 Route::get('/pmb/success', [PmbController::class, 'success'])->name('pmb.success');
 Route::post('/pmb/register/account', [PmbController::class, 'createParentAccount'])->name('pmb.create_account');
 Route::get('/pmb/tracking', [PmbController::class, 'tracking'])->name('pmb.tracking');
+Route::get('/pmb/formulir/download', [PmbController::class, 'downloadBlankFormulir'])->name('pmb.formulir.download');
 
 // Auth Routes
 Route::get('/parent/login', [AuthController::class, 'showLogin'])->name('parent.login');
@@ -44,6 +45,7 @@ Route::middleware(['auth', 'role:parent'])->group(function () {
     Route::put('/parent/profile', [ParentController::class, 'updateProfile'])->name('parent.profile.update');
     Route::get('/parent/student', [ParentController::class, 'editStudent'])->name('parent.student.edit');
     Route::put('/parent/student', [ParentController::class, 'updateStudent'])->name('parent.student.update');
+    Route::get('/parent/formulir/pdf', [ParentController::class, 'downloadFormulirPdf'])->name('parent.formulir.pdf');
 
     // === Parent Helpdesk Routes ===
     Route::prefix('parent/helpdesk')->name('parent.helpdesk.')->group(function () {
