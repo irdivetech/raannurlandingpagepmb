@@ -24,6 +24,12 @@ Route::post('/pmb/register/account', [PmbController::class, 'createParentAccount
 Route::get('/pmb/tracking', [PmbController::class, 'tracking'])->name('pmb.tracking');
 Route::get('/pmb/formulir/download', [PmbController::class, 'downloadBlankFormulir'])->name('pmb.formulir.download');
 
+// Article & Gallery Public Routes
+Route::get('/artikel', [\App\Http\Controllers\PublicArticleController::class, 'index'])->name('public.articles.index');
+Route::get('/artikel/{slug}', [\App\Http\Controllers\PublicArticleController::class, 'show'])->name('public.articles.show');
+Route::get('/kategori/{slug}', [\App\Http\Controllers\PublicArticleController::class, 'category'])->name('public.articles.category');
+Route::get('/galeri', [\App\Http\Controllers\PublicArticleController::class, 'gallery'])->name('public.gallery');
+
 // Auth Routes
 Route::get('/parent/login', [AuthController::class, 'showLogin'])->name('parent.login');
 Route::post('/parent/login', [AuthController::class, 'login']);
@@ -73,6 +79,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('/admin/users', \App\Http\Controllers\AdminUserController::class, ['as' => 'admin']);
     Route::resource('/admin/students', \App\Http\Controllers\AdminStudentController::class, ['as' => 'admin']);
     Route::resource('/admin/announcements', \App\Http\Controllers\AdminAnnouncementController::class, ['as' => 'admin']);
+    
+    // CMS Artikel Modules
+    Route::resource('/admin/categories', \App\Http\Controllers\Admin\CategoryController::class, ['as' => 'admin']);
+    Route::resource('/admin/articles', \App\Http\Controllers\Admin\ArticleController::class, ['as' => 'admin']);
     
     Route::get('/admin/reports', [\App\Http\Controllers\AdminReportController::class, 'index'])->name('admin.reports.index');
     Route::get('/admin/reports/export', [\App\Http\Controllers\AdminReportController::class, 'export'])->name('admin.reports.export');

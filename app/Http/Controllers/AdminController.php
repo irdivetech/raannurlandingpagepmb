@@ -36,8 +36,15 @@ class AdminController extends Controller
         $yearlyLabels = $yearlyData->keys()->toJson();
         $yearlyCounts = $yearlyData->values()->toJson();
 
-        return view('admin.dashboard', compact('total', 'verifying', 'accepted', 'rejected', 'recentApplicants', 'target_kuota', 'yearlyLabels', 'yearlyCounts'));
+        // Statistik Artikel
+        $total_articles = \App\Models\Article::count();
+        $published_articles = \App\Models\Article::where('status', 'published')->count();
+        $total_views = \App\Models\Article::sum('views');
+        $popular_article = \App\Models\Article::orderBy('views', 'desc')->first();
+
+        return view('admin.dashboard', compact('total', 'verifying', 'accepted', 'rejected', 'recentApplicants', 'target_kuota', 'yearlyLabels', 'yearlyCounts', 'total_articles', 'published_articles', 'total_views', 'popular_article'));
     }
+
 
     public function applicants(Request $request)
     {

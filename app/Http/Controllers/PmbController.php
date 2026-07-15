@@ -17,7 +17,13 @@ class PmbController extends Controller
 {
     public function landing()
     {
-        return view('welcome');
+        $latestArticles = \App\Models\Article::with('category')
+            ->where('status', 'published')
+            ->latest('published_at')
+            ->take(3)
+            ->get();
+            
+        return view('welcome', compact('latestArticles'));
     }
 
     public function registerStart()

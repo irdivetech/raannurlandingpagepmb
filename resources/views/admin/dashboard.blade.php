@@ -86,6 +86,54 @@
         </div>
     </div>
 
+    <!-- Artikel Stat Cards -->
+    <h3 class="font-bold text-gray-900 text-lg mb-4 mt-6">Statistik Artikel & Publikasi</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
+        <!-- Total Artikel -->
+        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex items-center justify-between mb-4">
+                <div class="w-11 h-11 rounded-xl flex items-center justify-center bg-blue-50">
+                    <span class="material-symbols-outlined text-blue-600 text-[22px]">article</span>
+                </div>
+            </div>
+            <p class="text-3xl font-extrabold text-gray-800 mb-1">{{ $total_articles }}</p>
+            <p class="text-sm text-gray-400 font-medium">Total Artikel</p>
+        </div>
+
+        <!-- Artikel Published -->
+        <div class="bg-white rounded-2xl p-5 border border-emerald-100 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex items-center justify-between mb-4">
+                <div class="w-11 h-11 rounded-xl flex items-center justify-center bg-emerald-50">
+                    <span class="material-symbols-outlined text-emerald-600 text-[22px]">check_circle</span>
+                </div>
+            </div>
+            <p class="text-3xl font-extrabold text-gray-800 mb-1">{{ $published_articles }}</p>
+            <p class="text-sm text-gray-400 font-medium">Artikel Dipublikasi</p>
+        </div>
+
+        <!-- Draft -->
+        <div class="bg-white rounded-2xl p-5 border border-amber-100 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex items-center justify-between mb-4">
+                <div class="w-11 h-11 rounded-xl flex items-center justify-center bg-amber-50">
+                    <span class="material-symbols-outlined text-amber-600 text-[22px]">edit_document</span>
+                </div>
+            </div>
+            <p class="text-3xl font-extrabold text-gray-800 mb-1">{{ $total_articles - $published_articles }}</p>
+            <p class="text-sm text-gray-400 font-medium">Artikel Draft</p>
+        </div>
+
+        <!-- Total Views -->
+        <div class="bg-white rounded-2xl p-5 border border-purple-100 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex items-center justify-between mb-4">
+                <div class="w-11 h-11 rounded-xl flex items-center justify-center bg-purple-50">
+                    <span class="material-symbols-outlined text-purple-600 text-[22px]">visibility</span>
+                </div>
+            </div>
+            <p class="text-3xl font-extrabold text-gray-800 mb-1">{{ $total_views }}</p>
+            <p class="text-sm text-gray-400 font-medium">Total Dilihat</p>
+        </div>
+    </div>
+
     <!-- Main Grid -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 

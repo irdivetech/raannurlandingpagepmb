@@ -60,6 +60,18 @@
             <span class="text-sm">Pengumuman</span>
         </a>
 
+        <!-- Artikel / Berita -->
+        <a href="{{ route('admin.articles.index') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {{ Str::startsWith($currentRoute, 'admin.articles') ? 'bg-emerald-500 text-white shadow-md shadow-emerald-500/20 font-bold transform scale-[1.02]' : 'text-gray-500 hover:bg-emerald-50 hover:text-emerald-600 font-medium' }}">
+            <span class="material-symbols-outlined {{ Str::startsWith($currentRoute, 'admin.articles') ? 'text-white' : '' }}">article</span>
+            <span class="text-sm">Artikel & Berita</span>
+        </a>
+
+        <!-- Kategori Artikel -->
+        <a href="{{ route('admin.categories.index') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {{ Str::startsWith($currentRoute, 'admin.categories') ? 'bg-emerald-500 text-white shadow-md shadow-emerald-500/20 font-bold transform scale-[1.02]' : 'text-gray-500 hover:bg-emerald-50 hover:text-emerald-600 font-medium' }}">
+            <span class="material-symbols-outlined {{ Str::startsWith($currentRoute, 'admin.categories') ? 'text-white' : '' }}">category</span>
+            <span class="text-sm">Kategori Artikel</span>
+        </a>
+
         <!-- Laporan -->
         <a href="{{ route('admin.reports.index') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {{ Str::startsWith($currentRoute, 'admin.reports') ? 'bg-emerald-500 text-white shadow-md shadow-emerald-500/20 font-bold transform scale-[1.02]' : 'text-gray-500 hover:bg-emerald-50 hover:text-emerald-600 font-medium' }}">
             <span class="material-symbols-outlined {{ Str::startsWith($currentRoute, 'admin.reports') ? 'text-white' : '' }}">analytics</span>

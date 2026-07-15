@@ -579,6 +579,71 @@
         </div>
     </section>
 
+    </section>
+
+    <!-- Kegiatan & Berita Terbaru -->
+    <section id="berita" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal">
+                <div class="max-w-2xl">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="h-1 w-8 bg-emerald-500 rounded"></div>
+                        <h3 class="text-emerald-500 font-bold uppercase tracking-wider text-sm">Informasi Terbaru</h3>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-4">Kegiatan & Berita</h2>
+                    <p class="text-gray-600 text-lg">Ikuti perkembangan terbaru dan ragam kegiatan seru di RA An-Nuur.</p>
+                </div>
+                <div class="mt-6 md:mt-0">
+                    <a href="{{ route('public.articles.index') }}" class="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 text-gray-700 font-bold rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm">
+                        Lihat Semua Artikel <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+
+            @if(isset($latestArticles) && $latestArticles->count() > 0)
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    @foreach($latestArticles as $article)
+                    <a href="{{ route('public.articles.show', $article->slug) }}" class="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden hover:-translate-y-2 reveal">
+                        <!-- Thumbnail -->
+                        <div class="relative h-56 overflow-hidden bg-gray-100">
+                            <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="{{ $article->title }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-emerald-600 text-xs font-bold rounded-lg shadow-sm">
+                                    {{ $article->category->name }}
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- Content -->
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="flex items-center gap-3 text-xs text-gray-500 font-medium mb-3">
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">calendar_month</span> {{ $article->published_at->format('d M Y') }}</span>
+                            </div>
+                            
+                            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors line-clamp-2 leading-snug">
+                                {{ $article->title }}
+                            </h3>
+                            
+                            <p class="text-gray-600 text-sm line-clamp-3 mb-6 flex-1">
+                                {{ $article->excerpt }}
+                            </p>
+                            
+                            <div class="flex items-center text-emerald-500 font-bold text-sm mt-auto group-hover:gap-2 transition-all">
+                                Baca Selengkapnya <span class="material-symbols-outlined text-[18px] ml-1">arrow_forward</span>
+                            </div>
+                        </div>
+                    </a>
+                    @endforeach
+                </div>
+            @else
+                <div class="text-center py-16 bg-white rounded-3xl border border-gray-100 reveal">
+                    <span class="material-symbols-outlined text-4xl text-gray-300 mb-2">article</span>
+                    <p class="text-gray-500">Belum ada berita terbaru.</p>
+                </div>
+            @endif
+        </div>
+    </section>
+
     <!-- Galeri & Kegiatan -->
     <section id="galeri" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
