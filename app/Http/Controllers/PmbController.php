@@ -23,7 +23,9 @@ class PmbController extends Controller
             ->take(3)
             ->get();
             
-        return view('welcome', compact('latestArticles'));
+        $schoolProfile = \App\Models\SchoolProfile::getProfile();
+            
+        return view('welcome', compact('latestArticles', 'schoolProfile'));
     }
 
     public function registerStart()

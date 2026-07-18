@@ -92,6 +92,12 @@
         <div class="my-4 border-t border-gray-100 mx-4"></div>
         <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest px-4 pb-2">Sistem</p>
 
+        <!-- Profil Sekolah -->
+        <a href="{{ route('admin.school-profile.edit') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {{ Str::startsWith($currentRoute, 'admin.school-profile') ? 'bg-emerald-500 text-white shadow-md shadow-emerald-500/20 font-bold transform scale-[1.02]' : 'text-gray-500 hover:bg-emerald-50 hover:text-emerald-600 font-medium' }}">
+            <span class="material-symbols-outlined {{ Str::startsWith($currentRoute, 'admin.school-profile') ? 'text-white' : '' }}">location_on</span>
+            <span class="text-sm">Profil Sekolah</span>
+        </a>
+
         <!-- Pengaturan -->
         <a href="{{ route('admin.settings.index') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {{ Str::startsWith($currentRoute, 'admin.settings') ? 'bg-emerald-500 text-white shadow-md shadow-emerald-500/20 font-bold transform scale-[1.02]' : 'text-gray-500 hover:bg-emerald-50 hover:text-emerald-600 font-medium' }}">
             <span class="material-symbols-outlined {{ Str::startsWith($currentRoute, 'admin.settings') ? 'text-white' : '' }}">settings</span>

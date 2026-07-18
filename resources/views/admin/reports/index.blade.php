@@ -190,10 +190,13 @@
         
         /* Reset main content area */
         .md\:ml-\[280px\] { margin-left: 0 !important; }
-        main { display: block !important; background: white !important; padding: 0 !important; margin: 20px !important;}
+        main { display: block !important; background: white !important; padding: 20px !important; margin: 0 !important;}
         
         /* Content area */
         .mb-6, .mb-8 { margin-bottom: 16pt !important; }
+
+        /* Hide the default section containing the breadcrumbs & title */
+        main > section { display: none !important; }
 
         /* Print header */
         main::before {
@@ -214,18 +217,21 @@
             text-align: center;
             font-size: 9pt;
             color: #555;
-            margin-bottom: 20pt;
+            margin-top: 20pt;
         }
         
         /* Stat cards grid */
-        .grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-4 {
+        main > div.grid:nth-of-type(1) {
             display: flex !important;
-            flex-wrap: wrap !important;
-            gap: 8pt !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            gap: 10pt !important;
+            width: 100% !important;
         }
-        .grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-4 > div {
-            flex: 1 1 22% !important;
-            border: 1px solid #ccc !important;
+        main > div.grid:nth-of-type(1) > div {
+            flex: 1 !important;
+            width: 25% !important;
+            border: 1px solid #e5e7eb !important;
             border-radius: 6pt !important;
             padding: 10pt !important;
             box-shadow: none !important;
@@ -233,29 +239,33 @@
         }
         
         /* Chart row */
-        .grid.grid-cols-1.lg\\:grid-cols-2 {
+        main > div.grid:nth-of-type(2) {
             display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
             gap: 12pt !important;
+            width: 100% !important;
         }
-        .grid.grid-cols-1.lg\\:grid-cols-2 > div {
+        main > div.grid:nth-of-type(2) > div {
             flex: 1 !important;
-            border: 1px solid #ccc !important;
+            width: 50% !important;
+            border: 1px solid #e5e7eb !important;
             border-radius: 6pt !important;
+            padding: 10pt !important;
             box-shadow: none !important;
             page-break-inside: avoid;
         }
         
         /* Chart containers */
-        .h-64 { height: 200pt !important; }
-        .h-72 { height: 260pt !important; }
-        canvas { max-width: 100% !important; }
+        .h-64 { height: 180pt !important; }
+        .h-72 { height: 220pt !important; }
+        canvas { max-width: 100% !important; height: auto !important; }
         
         /* Card styling */
         .bg-white { 
             background: white !important;
             box-shadow: none !important; 
         }
-        .rounded-2xl { border-radius: 6pt !important; }
         
         /* Text colors for print */
         .text-3xl { font-size: 18pt !important; font-weight: 900 !important; color: #111 !important; }
@@ -264,14 +274,16 @@
         .text-amber-600 { color: #d97706 !important; }
         
         /* Trend chart full width */
-        .mb-8 {
-            border: 1px solid #ccc !important;
+        main > div:nth-last-of-type(1) {
+            border: 1px solid #e5e7eb !important;
             box-shadow: none !important;
             page-break-inside: avoid;
+            width: 100% !important;
+            box-sizing: border-box !important;
         }
 
         @page {
-            size: A4 landscape;
+            size: A4 portrait;
             margin: 1.5cm;
         }
     }

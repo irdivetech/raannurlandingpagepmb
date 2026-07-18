@@ -5,6 +5,33 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RA An-Nuur - Mewujudkan Generasi Beriman & Bertaqwa</title>
+    <link rel="icon" type="image/jpeg" href="{{ asset('assets/img/logo/logosekolah.jpeg') }}">
+
+    @if(isset($schoolProfile))
+    <!-- SEO Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@@context": "https://schema.org",
+      "@@type": "EducationalOrganization",
+      "name": "{{ $schoolProfile->school_name }}",
+      "address": {
+        "@@type": "PostalAddress",
+        "streetAddress": "{{ $schoolProfile->address }}",
+        "addressLocality": "{{ $schoolProfile->city }}",
+        "addressRegion": "{{ $schoolProfile->province }}",
+        "postalCode": "{{ $schoolProfile->postal_code }}",
+        "addressCountry": "ID"
+      },
+      "geo": {
+        "@@type": "GeoCoordinates",
+        "latitude": {{ $schoolProfile->latitude ?? '-7.1627' }},
+        "longitude": {{ $schoolProfile->longitude ?? '107.1382' }}
+      },
+      "telephone": "{{ $schoolProfile->phone }}",
+      "email": "{{ $schoolProfile->email }}"
+    }
+    </script>
+    @endif
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -584,18 +611,19 @@
     <!-- Kegiatan & Berita Terbaru -->
     <section id="berita" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal">
+            <div class="flex flex-col items-center justify-center text-center mb-12 reveal">
                 <div class="max-w-2xl">
-                    <div class="flex items-center gap-4 mb-4">
+                    <div class="flex items-center justify-center gap-4 mb-4">
                         <div class="h-1 w-8 bg-emerald-500 rounded"></div>
                         <h3 class="text-emerald-500 font-bold uppercase tracking-wider text-sm">Informasi Terbaru</h3>
+                        <div class="h-1 w-8 bg-emerald-500 rounded"></div>
                     </div>
                     <h2 class="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-4">Kegiatan & Berita</h2>
                     <p class="text-gray-600 text-lg">Ikuti perkembangan terbaru dan ragam kegiatan seru di RA An-Nuur.</p>
                 </div>
-                <div class="mt-6 md:mt-0">
-                    <a href="{{ route('public.articles.index') }}" class="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 text-gray-700 font-bold rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm">
-                        Lihat Semua Artikel <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                <div class="mt-8">
+                    <a href="{{ route('public.articles.index') }}" class="inline-flex items-center gap-2 px-8 py-3 bg-white border border-gray-200 text-gray-700 font-bold rounded-full hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm">
+                        Lihat Semua Artikel
                     </a>
                 </div>
             </div>
@@ -719,6 +747,105 @@
         </div>
     </section>
 
+    <!-- Lokasi Kami -->
+    @if(isset($schoolProfile))
+    <section id="lokasi" class="py-24 bg-gray-50 relative overflow-hidden">
+        <!-- Decor -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-amber-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 -translate-x-1/2 translate-y-1/2"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <span class="text-primary font-bold tracking-wider uppercase text-sm mb-2 block">Kunjungi Kami</span>
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-gray-900 mb-6">Lokasi & Kontak Sekolah</h2>
+                <div class="w-24 h-1.5 bg-secondary mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Silakan datang langsung ke sekolah kami atau hubungi kami melalui kontak di bawah ini.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch reveal" style="transition-delay: 0.2s;">
+                
+                <!-- Kolom Kiri: Info Kontak -->
+                <div class="lg:col-span-5 flex flex-col h-full">
+                    <div class="bg-white p-8 md:p-10 rounded-3xl border border-gray-100 shadow-xl flex-grow relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -z-10 transition-transform duration-500 group-hover:scale-110"></div>
+                        
+                        <h3 class="text-2xl font-display font-bold text-gray-900 mb-8">{{ $schoolProfile->school_name }}</h3>
+                        
+                        <div class="space-y-6 flex-grow">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-emerald-100 text-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Alamat Lengkap</h4>
+                                    <p class="text-gray-600 text-sm leading-relaxed">{{ $schoolProfile->getFullAddress() }}</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-amber-100 text-secondary rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Telepon / WhatsApp</h4>
+                                    <p class="text-gray-600 text-sm">{{ $schoolProfile->phone }}</p>
+                                    @if($schoolProfile->whatsapp)
+                                    <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $schoolProfile->whatsapp) }}" target="_blank" class="text-primary text-sm font-bold hover:underline inline-flex items-center gap-1 mt-1">
+                                        Chat via WhatsApp &rarr;
+                                    </a>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-blue-100 text-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Email</h4>
+                                    <p class="text-gray-600 text-sm"><a href="mailto:{{ $schoolProfile->email }}" class="hover:text-primary transition-colors">{{ $schoolProfile->email }}</a></p>
+                                </div>
+                            </div>
+
+                            @if($schoolProfile->operating_hours)
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-rose-100 text-rose-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Jam Operasional</h4>
+                                    <p class="text-gray-600 text-sm">{{ $schoolProfile->operating_hours }}</p>
+                                </div>
+                            </div>
+                            @endif
+                        </div>
+
+                        @if($schoolProfile->google_maps_url)
+                        <div class="mt-8 pt-8 border-t border-gray-100">
+                            <a href="{{ $schoolProfile->google_maps_url }}" target="_blank" class="w-full bg-primary text-white py-4 rounded-xl font-bold hover:bg-primaryDark transition-all shadow-lg hover:shadow-primary/30 active:scale-[0.98] flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                Buka di Google Maps
+                            </a>
+                        </div>
+                        @endif
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Google Maps Embed -->
+                @if($schoolProfile->google_maps_embed)
+                <div class="lg:col-span-7 h-[400px] lg:h-auto rounded-3xl overflow-hidden shadow-xl border border-gray-200 relative group">
+                    <div class="absolute inset-0 bg-gray-200 animate-pulse -z-10"></div>
+                    <div class="w-full h-full [&>iframe]:w-full [&>iframe]:h-full [&>iframe]:border-0">
+                        {!! $schoolProfile->google_maps_embed !!}
+                    </div>
+                    <div class="absolute inset-0 border-4 border-transparent group-hover:border-primary/10 transition-colors pointer-events-none rounded-3xl"></div>
+                </div>
+                @endif
+            </div>
+        </div>
+    </section>
+    @endif
+
     <!-- CTA PMB -->
     <section class="py-20 relative overflow-hidden">
         <div class="absolute inset-0 bg-primary"></div>
@@ -762,14 +889,13 @@
                         berakhlakul karimah di bawah naungan Yayasan An-Nuur Nurul Iman.
                     </p>
                     <div class="flex gap-4">
-                        <a href="#"
+                        <a href="https://www.facebook.com/share/198wgDDjZs/" target="_blank"
                             class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-white">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
                             </svg>
                         </a>
-                        <a href="#"
+                        <a href="https://www.instagram.com/ra.an_nuur.takokak?igsh=cGVwcWppY3AwcWg=" target="_blank"
                             class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-white">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                 <path

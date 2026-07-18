@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.front')
 
 @section('title', isset($category) ? 'Kategori: ' . $category->name . ' | RA AN-NUUR' : 'Artikel & Berita | RA AN-NUUR')
 

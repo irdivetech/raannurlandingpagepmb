@@ -90,6 +90,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/settings', [\App\Http\Controllers\SettingsController::class, 'index'])->name('admin.settings.index');
     Route::post('/admin/settings', [\App\Http\Controllers\SettingsController::class, 'update'])->name('admin.settings.update');
 
+    // Profil Sekolah - Lokasi & Kontak
+    Route::get('/admin/school-profile', [\App\Http\Controllers\Admin\SchoolProfileController::class, 'edit'])->name('admin.school-profile.edit');
+    Route::put('/admin/school-profile', [\App\Http\Controllers\Admin\SchoolProfileController::class, 'update'])->name('admin.school-profile.update');
+
     // === Admin Helpdesk Routes ===
     Route::prefix('admin/helpdesk')->name('admin.helpdesk.')->group(function () {
         Route::get('/dashboard',         [AdminHelpdeskController::class, 'dashboard'])->name('dashboard');
