@@ -30,13 +30,16 @@
                     Sistem Penerimaan Murid Baru RA AN-NUUR mempermudah proses pendaftaran putra-putri Anda. Lingkungan belajar islami yang menyenangkan menanti.
                 </p>
                 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="{{ route('pmb.register') }}" class="bg-primary text-on-primary px-8 py-4 rounded-xl font-label-md text-lg hover:bg-primary-container transition-all active:scale-95 shadow-[0_8px_20px_-6px_rgba(0,107,44,0.4)] flex items-center justify-center gap-2 group">
+                <div class="flex flex-col sm:flex-row flex-wrap gap-4 justify-center md:justify-start">
+                    <a href="{{ route('pmb.register') }}" class="bg-primary text-on-primary px-6 py-3 rounded-xl font-label-md text-base hover:bg-primary-container transition-all active:scale-95 shadow-[0_8px_20px_-6px_rgba(0,107,44,0.4)] flex items-center justify-center gap-2 group">
                         Mulai Pendaftaran
-                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
                     </a>
-                    <a href="{{ route('pmb.tracking') }}" class="bg-surface text-primary border-2 border-primary/20 px-8 py-4 rounded-xl font-label-md text-lg hover:bg-surface-container-low hover:border-primary/40 transition-all flex items-center justify-center gap-2">
-                        Cek Status
+                    <a href="{{ route('pmb.tracking') }}" class="bg-surface text-primary border-2 border-primary/20 px-6 py-3 rounded-xl font-label-md text-base hover:bg-surface-container-low hover:border-primary/40 transition-all flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-lg">search</span> Cek Status
+                    </a>
+                    <a href="{{ route('pmb.formulir.download') }}" class="bg-secondary-container text-on-secondary-container border-2 border-transparent px-6 py-3 rounded-xl font-label-md text-base hover:bg-secondary-container-hover transition-all flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-lg">download</span> Unduh Formulir Kosong
                     </a>
                 </div>
                 

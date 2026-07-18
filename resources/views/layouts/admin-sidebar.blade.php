@@ -60,6 +60,18 @@
             <span class="text-sm">Pengumuman</span>
         </a>
 
+        <!-- Artikel / Berita -->
+        <a href="{{ route('admin.articles.index') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {{ Str::startsWith($currentRoute, 'admin.articles') ? 'bg-emerald-500 text-white shadow-md shadow-emerald-500/20 font-bold transform scale-[1.02]' : 'text-gray-500 hover:bg-emerald-50 hover:text-emerald-600 font-medium' }}">
+            <span class="material-symbols-outlined {{ Str::startsWith($currentRoute, 'admin.articles') ? 'text-white' : '' }}">article</span>
+            <span class="text-sm">Artikel & Berita</span>
+        </a>
+
+        <!-- Kategori Artikel -->
+        <a href="{{ route('admin.categories.index') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {{ Str::startsWith($currentRoute, 'admin.categories') ? 'bg-emerald-500 text-white shadow-md shadow-emerald-500/20 font-bold transform scale-[1.02]' : 'text-gray-500 hover:bg-emerald-50 hover:text-emerald-600 font-medium' }}">
+            <span class="material-symbols-outlined {{ Str::startsWith($currentRoute, 'admin.categories') ? 'text-white' : '' }}">category</span>
+            <span class="text-sm">Kategori Artikel</span>
+        </a>
+
         <!-- Laporan -->
         <a href="{{ route('admin.reports.index') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {{ Str::startsWith($currentRoute, 'admin.reports') ? 'bg-emerald-500 text-white shadow-md shadow-emerald-500/20 font-bold transform scale-[1.02]' : 'text-gray-500 hover:bg-emerald-50 hover:text-emerald-600 font-medium' }}">
             <span class="material-symbols-outlined {{ Str::startsWith($currentRoute, 'admin.reports') ? 'text-white' : '' }}">analytics</span>
@@ -79,6 +91,12 @@
         <!-- Divider -->
         <div class="my-4 border-t border-gray-100 mx-4"></div>
         <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest px-4 pb-2">Sistem</p>
+
+        <!-- Profil Sekolah -->
+        <a href="{{ route('admin.school-profile.edit') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {{ Str::startsWith($currentRoute, 'admin.school-profile') ? 'bg-emerald-500 text-white shadow-md shadow-emerald-500/20 font-bold transform scale-[1.02]' : 'text-gray-500 hover:bg-emerald-50 hover:text-emerald-600 font-medium' }}">
+            <span class="material-symbols-outlined {{ Str::startsWith($currentRoute, 'admin.school-profile') ? 'text-white' : '' }}">location_on</span>
+            <span class="text-sm">Profil Sekolah</span>
+        </a>
 
         <!-- Pengaturan -->
         <a href="{{ route('admin.settings.index') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {{ Str::startsWith($currentRoute, 'admin.settings') ? 'bg-emerald-500 text-white shadow-md shadow-emerald-500/20 font-bold transform scale-[1.02]' : 'text-gray-500 hover:bg-emerald-50 hover:text-emerald-600 font-medium' }}">

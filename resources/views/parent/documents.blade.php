@@ -18,7 +18,8 @@
             'akta' => ['label' => 'Akta Kelahiran', 'desc' => 'Wajib'],
             'kk' => ['label' => 'Kartu Keluarga', 'desc' => 'Wajib'],
             'ktp_ortu' => ['label' => 'KTP Orang Tua', 'desc' => 'Ayah dan Ibu'],
-            'foto' => ['label' => 'Pas Foto (3x4)', 'desc' => 'Latar Merah/Biru']
+            'foto' => ['label' => 'Pas Foto (3x4)', 'desc' => 'Latar Merah/Biru'],
+            'pkh_kks' => ['label' => 'Kartu PKH/KKS', 'desc' => 'Opsional (Jika ada)']
         ];
         $total = count($docTypes);
         $uploaded = $docs->count();

@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>@yield('title', 'Portal Orang Tua | RA AN-NUUR')</title>
+    <link rel="icon" type="image/jpeg" href="{{ asset('assets/img/logo/logosekolah.jpeg') }}">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fredoka:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -158,12 +159,7 @@
         <div class="max-w-container-max mx-auto px-gutter py-xl flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="flex flex-col items-center md:items-start">
                 <span class="font-label-md text-label-md font-bold text-primary">RA AN-NUUR</span>
-                <p class="font-body-sm text-body-sm text-on-surface-variant text-center md:text-left">© 2024 RA AN-NUUR Islamic Kindergarten. All rights reserved.</p>
-            </div>
-            <div class="flex gap-gutter">
-                <a class="font-body-sm text-body-sm text-on-surface-variant hover:underline" href="#">Kebijakan Privasi</a>
-                <a class="font-body-sm text-body-sm text-on-surface-variant hover:underline" href="#">Syarat & Ketentuan</a>
-                <a class="font-body-sm text-body-sm text-on-surface-variant hover:underline" href="#">Bantuan</a>
+                <p class="font-body-sm text-body-sm text-on-surface-variant text-center md:text-left">© RA AN-NUUR Islamic Kindergarten. All rights reserved.</p>
             </div>
         </div>
     </footer>

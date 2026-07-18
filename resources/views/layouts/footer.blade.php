@@ -12,10 +12,10 @@
                     Membangun generasi qur'ani yang cerdas, ceria, dan berakhlak mulia sejak usia dini.
                 </p>
                 <div class="flex gap-4 mt-6">
-                    <a href="#" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-primary hover:text-white transition-colors">
+                    <a href="https://www.facebook.com/share/198wgDDjZs/" target="_blank" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-primary hover:text-white transition-colors">
                         <span class="material-symbols-outlined text-lg">facebook</span>
                     </a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-primary hover:text-white transition-colors">
+                    <a href="https://www.instagram.com/ra.an_nuur.takokak?igsh=cGVwcWppY3AwcWg=" target="_blank" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-primary hover:text-white transition-colors">
                         <span class="material-symbols-outlined text-lg">photo_camera</span>
                     </a>
                 </div>

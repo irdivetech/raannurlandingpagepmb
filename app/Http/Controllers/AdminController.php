@@ -36,8 +36,15 @@ class AdminController extends Controller
         $yearlyLabels = $yearlyData->keys()->toJson();
         $yearlyCounts = $yearlyData->values()->toJson();
 
-        return view('admin.dashboard', compact('total', 'verifying', 'accepted', 'rejected', 'recentApplicants', 'target_kuota', 'yearlyLabels', 'yearlyCounts'));
+        // Statistik Artikel
+        $total_articles = \App\Models\Article::count();
+        $published_articles = \App\Models\Article::where('status', 'published')->count();
+        $total_views = \App\Models\Article::sum('views');
+        $popular_article = \App\Models\Article::orderBy('views', 'desc')->first();
+
+        return view('admin.dashboard', compact('total', 'verifying', 'accepted', 'rejected', 'recentApplicants', 'target_kuota', 'yearlyLabels', 'yearlyCounts', 'total_articles', 'published_articles', 'total_views', 'popular_article'));
     }
+
 
     public function applicants(Request $request)
     {
@@ -215,6 +222,7 @@ class AdminController extends Controller
                 'gender' => $request->gender,
                 'child_order' => $request->child_order,
                 'siblings_count' => $request->siblings_count,
+                'cita_cita' => $request->cita_cita,
                 'birth_place' => $request->birth_place,
                 'birth_date' => $request->birth_date,
             ]);
@@ -223,11 +231,18 @@ class AdminController extends Controller
             StudentParent::create([
                 'registration_id' => $registration->id,
                 'father_name' => $request->father_name,
+                'father_nik' => $request->father_nik,
+                'father_birth_place' => $request->father_birth_place,
+                'father_birth_date' => $request->father_birth_date,
                 'father_job' => $request->father_job,
                 'father_phone' => $request->father_phone,
                 'mother_name' => $request->mother_name,
+                'mother_nik' => $request->mother_nik,
+                'mother_birth_place' => $request->mother_birth_place,
+                'mother_birth_date' => $request->mother_birth_date,
                 'mother_job' => $request->mother_job,
                 'mother_phone' => $request->mother_phone,
+                'no_pkh_kks' => $request->no_pkh_kks,
             ]);
 
             // 4. Create Address
@@ -241,7 +256,7 @@ class AdminController extends Controller
             ]);
 
             // 5. Handle File Uploads (Optional)
-            $documentTypes = ['akta', 'kk', 'ktp_ortu', 'foto'];
+            $documentTypes = ['akta', 'kk', 'ktp_ortu', 'foto', 'pkh_kks'];
             foreach ($documentTypes as $type) {
                 if ($request->hasFile($type)) {
                     $path = $request->file($type)->store('documents', 'public');

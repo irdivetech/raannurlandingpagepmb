@@ -97,6 +97,10 @@
                     <label class="block text-sm font-bold text-gray-700 mb-1.5">Tanggal Lahir <span class="text-red-500">*</span></label>
                     <input type="date" name="birth_date" value="{{ old('birth_date') }}" required class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 text-sm focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20 focus:bg-white transition-all">
                 </div>
+                <div class="md:col-span-2">
+                    <label class="block text-sm font-bold text-gray-700 mb-1.5">Cita-cita</label>
+                    <input type="text" name="cita_cita" value="{{ old('cita_cita') }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 text-sm focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20 focus:bg-white transition-all">
+                </div>
             </div>
         </div>
 
@@ -112,6 +116,20 @@
                     <div>
                         <label class="block text-sm font-bold text-gray-700 mb-1.5">Nama Ayah <span class="text-red-500">*</span></label>
                         <input type="text" name="father_name" value="{{ old('father_name') }}" required class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 text-sm focus:outline-none focus:border-emerald-400 transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1.5">NIK Ayah</label>
+                        <input type="text" name="father_nik" value="{{ old('father_nik') }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 text-sm focus:outline-none focus:border-emerald-400 transition-all">
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-1/2">
+                            <label class="block text-sm font-bold text-gray-700 mb-1.5">Tempat Lahir</label>
+                            <input type="text" name="father_birth_place" value="{{ old('father_birth_place') }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 text-sm focus:outline-none focus:border-emerald-400 transition-all">
+                        </div>
+                        <div class="w-1/2">
+                            <label class="block text-sm font-bold text-gray-700 mb-1.5">Tanggal Lahir</label>
+                            <input type="date" name="father_birth_date" value="{{ old('father_birth_date') }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 text-sm focus:outline-none focus:border-emerald-400 transition-all">
+                        </div>
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-gray-700 mb-1.5">Pekerjaan Ayah</label>
@@ -130,6 +148,20 @@
                         <input type="text" name="mother_name" value="{{ old('mother_name') }}" required class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 text-sm focus:outline-none focus:border-emerald-400 transition-all">
                     </div>
                     <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1.5">NIK Ibu</label>
+                        <input type="text" name="mother_nik" value="{{ old('mother_nik') }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 text-sm focus:outline-none focus:border-emerald-400 transition-all">
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-1/2">
+                            <label class="block text-sm font-bold text-gray-700 mb-1.5">Tempat Lahir</label>
+                            <input type="text" name="mother_birth_place" value="{{ old('mother_birth_place') }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 text-sm focus:outline-none focus:border-emerald-400 transition-all">
+                        </div>
+                        <div class="w-1/2">
+                            <label class="block text-sm font-bold text-gray-700 mb-1.5">Tanggal Lahir</label>
+                            <input type="date" name="mother_birth_date" value="{{ old('mother_birth_date') }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 text-sm focus:outline-none focus:border-emerald-400 transition-all">
+                        </div>
+                    </div>
+                    <div>
                         <label class="block text-sm font-bold text-gray-700 mb-1.5">Pekerjaan Ibu</label>
                         <input type="text" name="mother_job" value="{{ old('mother_job') }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 text-sm focus:outline-none focus:border-emerald-400 transition-all">
                     </div>
@@ -137,6 +169,11 @@
                         <label class="block text-sm font-bold text-gray-700 mb-1.5">No. Telepon / WA Ibu</label>
                         <input type="text" name="mother_phone" value="{{ old('mother_phone') }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 text-sm focus:outline-none focus:border-emerald-400 transition-all">
                     </div>
+                </div>
+                <!-- Tambahan PKH/KKS -->
+                <div class="md:col-span-2">
+                    <label class="block text-sm font-bold text-gray-700 mb-1.5">No. Kartu PKH / KKS (Opsional)</label>
+                    <input type="text" name="no_pkh_kks" value="{{ old('no_pkh_kks') }}" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 text-sm focus:outline-none focus:border-emerald-400 transition-all">
                 </div>
             </div>
         </div>
@@ -205,6 +242,10 @@
                 <div>
                     <label class="block text-sm font-bold text-gray-700 mb-1.5">Pas Foto Anak (3x4)</label>
                     <input type="file" name="foto" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100">
+                </div>
+                <div class="md:col-span-2">
+                    <label class="block text-sm font-bold text-gray-700 mb-1.5">Kartu PKH/KKS</label>
+                    <input type="file" name="pkh_kks" accept="image/*,.pdf" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100">
                 </div>
             </div>
             

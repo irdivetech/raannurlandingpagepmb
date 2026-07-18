@@ -88,6 +88,11 @@
                             <p class="text-xs text-gray-400 mt-1">Jika belum memiliki NIK, biarkan kosong atau isi dengan NIK pada Kartu Keluarga.</p>
                             @error('nik') <span class="text-rose-500 text-xs">{{ $message }}</span> @enderror
                         </div>
+                        <div class="space-y-2">
+                            <label class="font-medium text-sm text-gray-700">Cita-cita</label>
+                            <input name="cita_cita" class="w-full p-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 outline-none transition-all text-gray-800" type="text" value="{{ old('cita_cita', $studentData->cita_cita ?? '') }}"/>
+                            @error('cita_cita') <span class="text-rose-500 text-xs">{{ $message }}</span> @enderror
+                        </div>
                         
                         <div class="pt-6 border-t border-gray-100 flex justify-end">
                             <button class="px-6 py-3 bg-emerald-500 text-white font-bold rounded-xl transition-all hover:bg-emerald-600 active:scale-95 shadow-md shadow-emerald-500/20" type="submit">Simpan Perubahan</button>

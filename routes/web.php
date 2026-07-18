@@ -22,6 +22,13 @@ Route::post('/pmb/register/submit', [PmbController::class, 'submit'])->name('pmb
 Route::get('/pmb/success', [PmbController::class, 'success'])->name('pmb.success');
 Route::post('/pmb/register/account', [PmbController::class, 'createParentAccount'])->name('pmb.create_account');
 Route::get('/pmb/tracking', [PmbController::class, 'tracking'])->name('pmb.tracking');
+Route::get('/pmb/formulir/download', [PmbController::class, 'downloadBlankFormulir'])->name('pmb.formulir.download');
+
+// Article & Gallery Public Routes
+Route::get('/artikel', [\App\Http\Controllers\PublicArticleController::class, 'index'])->name('public.articles.index');
+Route::get('/artikel/{slug}', [\App\Http\Controllers\PublicArticleController::class, 'show'])->name('public.articles.show');
+Route::get('/kategori/{slug}', [\App\Http\Controllers\PublicArticleController::class, 'category'])->name('public.articles.category');
+Route::get('/galeri', [\App\Http\Controllers\PublicArticleController::class, 'gallery'])->name('public.gallery');
 
 // Auth Routes
 Route::get('/parent/login', [AuthController::class, 'showLogin'])->name('parent.login');
@@ -44,6 +51,7 @@ Route::middleware(['auth', 'role:parent'])->group(function () {
     Route::put('/parent/profile', [ParentController::class, 'updateProfile'])->name('parent.profile.update');
     Route::get('/parent/student', [ParentController::class, 'editStudent'])->name('parent.student.edit');
     Route::put('/parent/student', [ParentController::class, 'updateStudent'])->name('parent.student.update');
+    Route::get('/parent/formulir/pdf', [ParentController::class, 'downloadFormulirPdf'])->name('parent.formulir.pdf');
 
     // === Parent Helpdesk Routes ===
     Route::prefix('parent/helpdesk')->name('parent.helpdesk.')->group(function () {
@@ -72,11 +80,19 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('/admin/students', \App\Http\Controllers\AdminStudentController::class, ['as' => 'admin']);
     Route::resource('/admin/announcements', \App\Http\Controllers\AdminAnnouncementController::class, ['as' => 'admin']);
     
+    // CMS Artikel Modules
+    Route::resource('/admin/categories', \App\Http\Controllers\Admin\CategoryController::class, ['as' => 'admin']);
+    Route::resource('/admin/articles', \App\Http\Controllers\Admin\ArticleController::class, ['as' => 'admin']);
+    
     Route::get('/admin/reports', [\App\Http\Controllers\AdminReportController::class, 'index'])->name('admin.reports.index');
     Route::get('/admin/reports/export', [\App\Http\Controllers\AdminReportController::class, 'export'])->name('admin.reports.export');
 
     Route::get('/admin/settings', [\App\Http\Controllers\SettingsController::class, 'index'])->name('admin.settings.index');
     Route::post('/admin/settings', [\App\Http\Controllers\SettingsController::class, 'update'])->name('admin.settings.update');
+
+    // Profil Sekolah - Lokasi & Kontak
+    Route::get('/admin/school-profile', [\App\Http\Controllers\Admin\SchoolProfileController::class, 'edit'])->name('admin.school-profile.edit');
+    Route::put('/admin/school-profile', [\App\Http\Controllers\Admin\SchoolProfileController::class, 'update'])->name('admin.school-profile.update');
 
     // === Admin Helpdesk Routes ===
     Route::prefix('admin/helpdesk')->name('admin.helpdesk.')->group(function () {
